@@ -2,13 +2,13 @@
 Data analysis and figure generation for Montgomery et al., 2022. 
 
 
-/modelevaluationscripts
+/ModelEvaluationScripts
 - The scripts used to analyze WRF and CMAQ output and create figures related to the model performance.
 
-/resultsfigures
+/ResultsFigures
 - The scripts used to analyze WRF-CMAQ chemical output and create main figures for the paper.
 
-/discussionfigs
+/DiscussionFigures
 - The scripts used to analyze WRF-CMAQ chemical output and create discussion figures for the paper.
 
 
