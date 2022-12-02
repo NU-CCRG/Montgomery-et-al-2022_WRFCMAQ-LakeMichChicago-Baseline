@@ -596,15 +596,14 @@ plt.tight_layout()
 plt.savefig('d02_d03_station_coverage.png')
 plt.show()
 
-
 ####################################################################################################################################
 # Make diurnal profile
 def makefig(t,x3,x2,y3,y2,var):
     fig,ax = plt.subplots(figsize = (4,3))
     ax.plot(t,x3,linewidth = 1, label='d03')
     ax.plot(t,x2,linewidth = 1, label='d02')
-    ax.plot(t,y2,linestyle='--',linewidth = 1, label = 'AQSd02')
-    ax.plot(t,y3,linestyle='--',linewidth = 1, label = 'AQSd03')
+    #ax.plot(t,y2,linestyle='--',linewidth = 1, label = 'AQSd02')
+    ax.plot(t,y3,linestyle='--',linewidth = 1, label = 'AQS')
     ax.grid()
     ax.set_xlabel('Hour of Day (GMT)')
     ax.set_ylabel(var)
@@ -613,6 +612,7 @@ def makefig(t,x3,x2,y3,y2,var):
     #plt.legend()
     plt.savefig(var+'_alld03_diurnal_CMAQ_avg.png',dpi = 300)
     plt.close()
+
 
 for i in range(len(epa_files)):
 	f = pd.read_csv(epa_files[i])
@@ -624,7 +624,10 @@ for i in range(len(epa_files)):
 	f['hr'] = [f.dt[i].hour for i in range(len(f))]
 	f2['hr'] = [f2.dt[i].hour for i in range(len(f2))]
 	fh = f.groupby('hr').mean()
+	f2 = f2[f2['Latitude'].isin(f.Latitude.unique())].reset_index(drop=True) # crop d02 to d03 lats
 	fh2 = f2.groupby('hr').mean()
 	if v == 'O3': fh['Sample Measurement'],fh2['Sample Measurement'] = fh['Sample Measurement']*1000,fh2['Sample Measurement']*1000
 	if v == 'CO': fh['Sample Measurement'],fh2['Sample Measurement'] = fh['Sample Measurement']*1000,fh2['Sample Measurement']*1000
 	makefig(np.arange(0,24),fh.CMAQ,fh2.CMAQ,fh['Sample Measurement'],fh2['Sample Measurement'],v)
+
+
