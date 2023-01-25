@@ -169,8 +169,8 @@ monthly = pd.DataFrame([monthly8,monthly10,monthly1,monthly4])
 
 columns = ['epa','cam','nmb','nme','mb','rms','r','p']
 hourly.columns = columns; daily.columns = columns; dailymax.columns = columns;dailymin.columns = columns; monthly.columns = columns
-hourly.to_csv('hourly_camchem_o3.csv');daily.to_csv('hourly_camchem_o3.csv');dailymax.to_csv('hourly_camchem_o3.csv');
-dailymin.to_csv('hourly_camchem_o3.csv');monthly.to_csv('hourly_camchem_o3.csv');
+hourly.to_csv('hourly_camchem_o3.csv');daily.to_csv('daily_camchem_o3.csv');dailymax.to_csv('dailymax_camchem_o3.csv');
+dailymin.to_csv('dailymin_camchem_o3.csv');monthly.to_csv('monthly_camchem_o3.csv');
 
 
 #----------------------------------------------------------------------------------------------------
