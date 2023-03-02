@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/542703483.svg)](https://zenodo.org/badge/latestdoi/542703483)
+
+
 # Montgomery-et-al-2022_WRFCMAQ-LakeMichChicago-Baseline
 Data analysis and figure generation for Montgomery et al., 2022. 
 
